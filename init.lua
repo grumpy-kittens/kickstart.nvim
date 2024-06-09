@@ -775,6 +775,7 @@ require('lazy').setup({
     end,
   },
 
+  -- Theme
   {
     'bluz71/vim-nightfly-colors',
     name = 'nightfly',
@@ -785,15 +786,18 @@ require('lazy').setup({
     end,
   },
 
+  -- Git stuff
   {
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
+    'NeogitOrg/neogit',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-      'MunifTanjim/nui.nvim',
-      '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
+      'sindrets/diffview.nvim',
+
+      'nvim-telescope/telescope.nvim',
     },
+    config = function()
+      require('neogit').setup {}
+    end,
   },
 
   -- Highlight todo, notes, etc in comments
